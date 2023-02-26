@@ -1,4 +1,4 @@
-#include "main.h" //includes hal file for mcu used
+#include "main.h"
 #include "gpio.h"
 #include "Keypad.h"
 
