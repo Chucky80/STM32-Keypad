@@ -2,8 +2,8 @@
 #include "gpio.h"
 #include "Keypad.h"
 
-uint8_t rowPins[] = {8, 7, 6, 5, 4};
-uint8_t colPins[] = {0, 1, 2, 3};
+uint8_t rowPins[] = {8, 7, 6, 5, 4};  // GPIO Input Pull_Up
+uint8_t colPins[] = {0, 1, 2, 3};     // GPIO Output
 char customKey;
 
 char keypadArray[sizeof(rowPins)][sizeof(colPins)] =
