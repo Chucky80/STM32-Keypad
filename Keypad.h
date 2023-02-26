@@ -2,7 +2,7 @@
 #define KEYPAD_H
 
 #include <cstdint>
-#include "stm32f1xx_hal.h"
+#include "main.h"
 
 #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))
