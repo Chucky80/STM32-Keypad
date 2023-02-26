@@ -14,6 +14,6 @@ Rename main.c to main.cpp.
 
 Works only with one port - GPIOA for example.
 
-Searching for simple way to make it work with diferent ports.
+Searching for simple way to make it work with different ports.
 
 Any help would be appreciated.
