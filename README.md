@@ -12,7 +12,7 @@ Right click on project -> Convert to C++.
 
 Rename main.c to main.cpp.
 
-Works with only one port - GPIOA for example.
+Works only with one port - GPIOA for example.
 
 Searching for simple way to make it work with diferent ports.
 
