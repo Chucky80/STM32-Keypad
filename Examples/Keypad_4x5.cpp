@@ -31,7 +31,7 @@ int main(void)
   {
   	customKey = keypad.getKey();
 
-  	if(customKey)
+  	if(customKey) // Example - if(customKey == 'A') { print something }
   	{
 		// Do something
   	}
