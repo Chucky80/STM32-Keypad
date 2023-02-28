@@ -71,8 +71,8 @@ private:
 	uint16_t debounceTime;
 	uint16_t holdTime;
 	bool single_key;
-	char rPortrs[16]{};
-	char cPortrs[16]{};
+	char rPorts[16]{};
+	char cPorts[16]{};
 	unsigned char rPins[16]{};
 	unsigned char cPins[16]{};
 
