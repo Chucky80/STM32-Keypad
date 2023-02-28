@@ -3,7 +3,7 @@ sekerev@seznam.cz<br>
 ---------
 Keypad is a library for using matrix style keypads 3x4, 4x4 or 4x5 with STM32.
 
-Keypad size is limited by IO pins of MCU used.
+(Keypad size is limited by IO pins of your MCU.)
 
 Ported from https://playground.arduino.cc/Code/Keypad/ by Mark Stanley, Alexander Brevig.
 
