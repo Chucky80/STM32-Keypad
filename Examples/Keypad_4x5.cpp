@@ -1,8 +1,28 @@
+/*
+file Keypad_4x5.cpp
+Demonstrates the simplest use of the matrix Keypad library
+Turns on/off built-in led of Bluepill board
+
+Copyright (C) 2023  Shegy sekerev@seznam.cz
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 #include "main.h"
 #include "gpio.h"
 #include "Keypad.h"
 
-char customKey;
 const unsigned char numRows = 5;
 const unsigned char numCols = 4;
 const char* rowPins[] = { "B0" , "A7", "A6", "A5", "A4" };   // GPIO Input - Pull_Up
@@ -29,11 +49,15 @@ int main(void)
 
   while (1)
   {
-  	customKey = keypad.getKey();
-
-  	if(customKey) // Example - if(customKey == 'A') { print something }
+  	if(keypad.getKey() == '1')
   	{
-		// Do something
+		// You may need to change GPIO_PIN_SET to
+		//  GPIO_PIN_RESET depending on your setings
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET); // PC13 is D2 (led) on Bluepill board
+  	}
+	  if(keypad.getKey() == '0')
+  	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
   	}
   }
 }
