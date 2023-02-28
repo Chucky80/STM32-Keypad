@@ -31,12 +31,12 @@ Keypad::Keypad(char *userKeymap, const char *rowPins[], const char *colPins[], u
 {
 	for (int i = 0; i < numRows; i++)
 	{
-		rPortrs[i] = rowPins[i][0] & 0x0F;
+		rPorts[i] = rowPins[i][0] & 0x0F;
 		rPins[i] = atoi(rowPins[i] + 1);
 	}
 	for (int i = 0; i < numCols; i++)
 	{
-		cPortrs[i] = colPins[i][0] & 0x0F;
+		cPorts[i] = colPins[i][0] & 0x0F;
 		cPins[i] = atoi(colPins[i] + 1);
 	}
 
@@ -81,14 +81,14 @@ void Keypad::scanKeys()
 	// bitMap stores ALL the keys that are being pressed.
 	for (unsigned char c = 0; c < sizeKpd.columns; c++)
 	{
-		HAL_GPIO_WritePin((GPIO_TypeDef *)(GPIO_BASE + (((1 << 2) << 8) * cPortrs[c])), 0x1 << _columnPins[c], GPIO_PIN_RESET);
+		HAL_GPIO_WritePin((GPIO_TypeDef *)(GPIO_BASE + (((1 << 2) << 8) * cPorts[c])), 0x1 << _columnPins[c], GPIO_PIN_RESET);
 
 		for (unsigned char r = 0; r < sizeKpd.rows; r++)
 		{
-			bitWrite(bitMap[r], c, !HAL_GPIO_ReadPin((GPIO_TypeDef *)(GPIO_BASE + (((1 << 2) << 8) * rPortrs[r])), 0x1 << _rowPins[r])); // keypress is active low so invert to high.
+			bitWrite(bitMap[r], c, !HAL_GPIO_ReadPin((GPIO_TypeDef *)(GPIO_BASE + (((1 << 2) << 8) * rPorts[r])), 0x1 << _rowPins[r])); // keypress is active low so invert to high.
 		}
 		// Set pin to high impedance input. Effectively ends column pulse.
-		HAL_GPIO_WritePin((GPIO_TypeDef *)(GPIO_BASE + (((1 << 2) << 8) * cPortrs[c])), 0x1 << _columnPins[c], GPIO_PIN_SET);
+		HAL_GPIO_WritePin((GPIO_TypeDef *)(GPIO_BASE + (((1 << 2) << 8) * cPorts[c])), 0x1 << _columnPins[c], GPIO_PIN_SET);
 	}
 }
 // Manage the list without rearranging the keys. Returns true if any keys on the list changed state.
