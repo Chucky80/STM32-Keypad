@@ -2,12 +2,13 @@
 #define KEYPAD_H
 
 #include <cstdint>
-#include "main.h"   //includes hal file for mcu used
+#include "main.h"
 
 #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))
 #define bitClear(value, bit) ((value) &= ~(1UL << (bit)))
 #define bitWrite(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
+#define GPIO_BASE APB2PERIPH_BASE + 0x400
 
 const char NO_KEY = '\0';
 constexpr auto LIST_MAX = 10;		// Max number of keys on the active list.;
@@ -42,7 +43,7 @@ typedef struct
 class Keypad: public Key
 {
 public:
-	Keypad(GPIO_TypeDef *port, char *userKeymap, uint8_t *rowPins, uint8_t *colPins, unsigned char numRows, unsigned char numCols);
+	Keypad(char *userKeymap, const char* rowPins[], const char* colPins[], unsigned char numRows, unsigned char numCols);
 
 	uint16_t bitMap[MAPSIZE];	// 10 row x 16 column array of bits. Except Due which has 32 columns.
 	Key key[LIST_MAX];
@@ -51,7 +52,6 @@ public:
 	char getKey();
 	bool getKeys();
 	KeyState getState();
-	void begin(char *userKeymap);
 	bool isPressed(char keyChar);
 	void setDebounceTime(uint16_t);
 	void setHoldTime(uint16_t);
@@ -71,7 +71,10 @@ private:
 	uint16_t debounceTime;
 	uint16_t holdTime;
 	bool single_key;
-	GPIO_TypeDef *_port;
+	char rPortrs[16]{};
+	char cPortrs[16]{};
+	unsigned char rPins[16]{};
+	unsigned char cPins[16]{};
 
 	void scanKeys();
 	bool updateList();
