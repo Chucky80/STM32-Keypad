@@ -52,7 +52,7 @@ int main(void)
   	if(keypad.getKey() == '1')
   	{
 		// You may need to change GPIO_PIN_SET to
-		//  GPIO_PIN_RESET depending on your setings
+		//  GPIO_PIN_RESET depending on your settings
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET); // PC13 is D2 (led) on Bluepill board
   	}
 	  if(keypad.getKey() == '0')
