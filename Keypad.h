@@ -8,7 +8,7 @@
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))
 #define bitClear(value, bit) ((value) &= ~(1UL << (bit)))
 #define bitWrite(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
-#define GPIO_BASE APB2PERIPH_BASE + 0x400
+#define GPIO_BASE 0x40010400
 
 const char NO_KEY = '\0';
 constexpr auto LIST_MAX = 10;		// Max number of keys on the active list.;
