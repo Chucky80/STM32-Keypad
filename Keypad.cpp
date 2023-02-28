@@ -88,7 +88,7 @@ void Keypad::scanKeys()
 			bitWrite(bitMap[r], c, !HAL_GPIO_ReadPin((GPIO_TypeDef *)(GPIO_BASE + (0x400 * rPorts[r])), 0x1 << _rowPins[r])); // keypress is active low so invert to high.
 		}
 		// Set pin to high impedance input. Effectively ends column pulse.
-		HAL_GPIO_WritePin((GPIO_TypeDef *)(GPIO_BASE + (0x400* cPorts[c])), 0x1 << _columnPins[c], GPIO_PIN_SET);
+		HAL_GPIO_WritePin((GPIO_TypeDef *)(GPIO_BASE + (0x400 * cPorts[c])), 0x1 << _columnPins[c], GPIO_PIN_SET);
 	}
 }
 // Manage the list without rearranging the keys. Returns true if any keys on the list changed state.
