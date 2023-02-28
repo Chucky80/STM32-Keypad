@@ -12,8 +12,6 @@ Right click on project -> Convert to C++.
 
 Rename main.c to main.cpp.
 
-Works only with one port - GPIOA for example.
 
-Searching for simple way to make it work with different ports.
-
-Any help would be appreciated.
+UPDATE 1:
+Library now works with all ports.
