@@ -1,4 +1,4 @@
-Written by Shegy<br>
+Ported by Shegy<br>
 sekerev@seznam.cz<br>
 ---------
 Keypad is a library for using matrix style keypads 3x4, 4x4 or 4x5 with STM32.
