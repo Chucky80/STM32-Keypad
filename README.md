@@ -21,6 +21,6 @@ Rename main.c to main.cpp.
 ---------
 UPDATE 1:
 
-Library now works with all ports.
+Library now works with all GPIO ports.
 
 Tested on STM32F1 and STM32F4.
