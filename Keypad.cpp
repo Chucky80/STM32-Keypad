@@ -45,7 +45,7 @@ void Key::key_update(char userKeyChar, KeyState userState, bool userStatus)
 }
 
 // <<constructor>> Allows custom keymap, pin configuration, and keypad sizes.
-Keypad::Keypad(char *userKeymap, const char *rowPins[], const char *colPins[], unsigned char numRows, unsigned char numCols)
+Keypad::Keypad(char *userKeymap, const char** rowPins, const char** colPins, unsigned char numRows, unsigned char numCols)
 {
 	for (int i = 0; i < numRows; i++)
 	{
