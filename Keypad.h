@@ -61,7 +61,7 @@ typedef struct
 class Keypad: public Key
 {
 public:
-	Keypad(char *userKeymap, const char* rowPins[], const char* colPins[], unsigned char numRows, unsigned char numCols);
+	Keypad(char *userKeymap, const char** rowPins, const char** colPins, unsigned char numRows, unsigned char numCols);
 
 	uint16_t bitMap[MAPSIZE];	// 10 row x 16 column array of bits. Except Due which has 32 columns.
 	Key key[LIST_MAX];
